@@ -1,0 +1,31 @@
+sudo kubeadm init --apiserver-advertise-address=192.168.59.1
+sudo rm -rf /etc/kubernetes/manifests/*
+sudo rm -rf /var/lib/etcd
+
+sudo systemctl daemon-reload && sudo systemctl restart docker && sudo systemctl restart kubelet
+
+
+
+# 192.168.59.1 master.burrency.com master 
+# 192.168.59.2 workder.burrency.com worker
+
+
+### Running  
+# sudo kubeadm init --apiserver-advertise-address=192.168.59.1 
+###
+
+# Your Kubernetes control-plane has initialized successfully!
+# To start using your cluster, you need to run the following as a regular user:
+#   mkdir -p $HOME/.kube
+#   sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+#   sudo chown $(id -u):$(id -g) $HOME/.kube/config
+# Alternatively, if you are the root user, you can run:
+# export KUBECONFIG=/etc/kubernetes/admin.conf
+
+# You should now deploy a pod network to the cluster.
+# Run "kubectl apply -f [podnetwork].yaml" with one of the options listed at:
+#   https://kubernetes.io/docs/concepts/cluster-administration/addons/
+
+# Then you can join any number of worker nodes by running the following on each as root:
+
+# sudo kubeadm join 192.168.59.1:6443 --token nzsd3t.23m4y171hoya8xfu --discovery-token-ca-cert-hash sha256:1f4ee012f73eb5c723609f2d3bba5330c216d3a7a0bbe6959007c9c5945e83c1 

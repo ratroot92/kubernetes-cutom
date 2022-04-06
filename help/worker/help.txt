@@ -1,0 +1,3 @@
+sudo rm -rf  /etc/kubernetes/pki/ca.crt &&  sudo rm -rf /etc/kubernetes/kubelet.conf && sudo rm -rf /etc/kubernetes/bootstrap-kubelet.conf
+
+sudo service kubelet restart && sudo service kubelet status
